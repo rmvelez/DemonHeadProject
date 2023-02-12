@@ -2,17 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerInit : MonoBehaviour
+namespace DemonHead.Player
 {
-    // Start is called before the first frame update
-    void Start()
+    public class PlayerInit : MonoBehaviour
     {
-        
-    }
+        //Initialiser, adds relevant components and calls on them to initialise
+        internal void Init(Vector2 position)
+        {
+            transform.position = position;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+            gameObject.AddComponent<PlayerMovement>().Init();
+            gameObject.AddComponent<PlayerAppearance>().Init();
+        }
     }
 }

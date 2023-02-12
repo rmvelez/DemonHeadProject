@@ -1,18 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DemonHead.Player;
 
-public class PlayerSpawn : MonoBehaviour
+namespace DemonHead.Infrastructure
 {
-    // Start is called before the first frame update
-    void Start()
+    public class PlayerSpawn : MonoBehaviour
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        //Awake, spawn player and call initialiser component to setup player
+        private void Awake()
+        {
+            PlayerInit player = new GameObject("Player").AddComponent<PlayerInit>();
+            player.Init(transform.position);
+        }
     }
 }
